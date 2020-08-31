@@ -1,0 +1,12 @@
+type Query {
+  cryptoCurrency: CryptoCurrency!
+}
+
+type CryptoCurrency {
+  name: String!
+  value: String!
+}
+
+type Mutation {
+  addCryptoCurrency(name: String!, value: String!): ID!
+}

@@ -1,6 +1,6 @@
 import React from "react"
 import { createFragmentContainer, QueryRenderer } from "react-relay"
-import environment from "./lib/createRelayEnvironment"
+import environment from "./relayEnvironment"
 import graphql from 'babel-plugin-relay/macro';
 
 import CryptoName from './CryptoName';

@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+
+import CryptoCurrencyQuery from './CryptoCurrencyQuery';
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
       }}
     >
       <h1>Query</h1>
-      <div>{}</div>
+      <div>
+        <CryptoCurrencyQuery />
+      </div>
       <br/>
       <h1>Mutation</h1>
       <div>{}</div>

@@ -1,9 +1,10 @@
 import React from "react"
-import { createFragmentContainer, QueryRenderer } from "react-relay"
+import { QueryRenderer } from "react-relay"
 import environment from "./relayEnvironment"
 import graphql from 'babel-plugin-relay/macro';
 
 import CryptoName from './CryptoName';
+import CryptoValue from './CryptoValue'
 
 // Below you can usually use one query renderer per page
 // and it represents the root of a query
@@ -15,6 +16,7 @@ export default function CryptoCurrencyQuery() {
         query CryptoCurrencyQuery {
           cryptoCurrency {
             ...CryptoName_cryptoCurrency
+            ...CryptoValue_cryptoCurrency
           }
         }
       `}
@@ -23,7 +25,12 @@ export default function CryptoCurrencyQuery() {
         if (error) {
           return <div>{error.message}</div>;
         } else if (props) {
-          return <CryptoName {...props} />;
+          return (
+            <div>
+              <CryptoName {...props} />:
+              <CryptoValue {...props} />
+            </div>
+          );
         }
         return <div>Loading</div>;
       }}

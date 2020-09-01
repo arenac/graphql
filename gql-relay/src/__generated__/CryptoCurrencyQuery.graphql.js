@@ -9,10 +9,11 @@
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
 type CryptoName_cryptoCurrency$ref = any;
+type CryptoValue_cryptoCurrency$ref = any;
 export type CryptoCurrencyQueryVariables = {||};
 export type CryptoCurrencyQueryResponse = {|
   +cryptoCurrency: {|
-    +$fragmentRefs: CryptoName_cryptoCurrency$ref
+    +$fragmentRefs: CryptoName_cryptoCurrency$ref & CryptoValue_cryptoCurrency$ref
   |}
 |};
 export type CryptoCurrencyQuery = {|
@@ -26,11 +27,16 @@ export type CryptoCurrencyQuery = {|
 query CryptoCurrencyQuery {
   cryptoCurrency {
     ...CryptoName_cryptoCurrency
+    ...CryptoValue_cryptoCurrency
   }
 }
 
 fragment CryptoName_cryptoCurrency on CryptoCurrency {
   name
+}
+
+fragment CryptoValue_cryptoCurrency on CryptoCurrency {
+  value
 }
 */
 
@@ -53,6 +59,11 @@ const node/*: ConcreteRequest*/ = {
             "args": null,
             "kind": "FragmentSpread",
             "name": "CryptoName_cryptoCurrency"
+          },
+          {
+            "args": null,
+            "kind": "FragmentSpread",
+            "name": "CryptoValue_cryptoCurrency"
           }
         ],
         "storageKey": null
@@ -81,6 +92,13 @@ const node/*: ConcreteRequest*/ = {
             "kind": "ScalarField",
             "name": "name",
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "value",
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -88,15 +106,15 @@ const node/*: ConcreteRequest*/ = {
     ]
   },
   "params": {
-    "cacheID": "3d2a3a8f634f2c7ed178b10df16de658",
+    "cacheID": "186b3f8016689464846ad7473a953e65",
     "id": null,
     "metadata": {},
     "name": "CryptoCurrencyQuery",
     "operationKind": "query",
-    "text": "query CryptoCurrencyQuery {\n  cryptoCurrency {\n    ...CryptoName_cryptoCurrency\n  }\n}\n\nfragment CryptoName_cryptoCurrency on CryptoCurrency {\n  name\n}\n"
+    "text": "query CryptoCurrencyQuery {\n  cryptoCurrency {\n    ...CryptoName_cryptoCurrency\n    ...CryptoValue_cryptoCurrency\n  }\n}\n\nfragment CryptoName_cryptoCurrency on CryptoCurrency {\n  name\n}\n\nfragment CryptoValue_cryptoCurrency on CryptoCurrency {\n  value\n}\n"
   }
 };
 // prettier-ignore
-(node/*: any*/).hash = '9a57310a816504d32bc579f9ef4ac146';
+(node/*: any*/).hash = 'd4ad603934f46cbb6ce306e2a7e314b5';
 
 module.exports = node;

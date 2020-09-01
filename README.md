@@ -38,7 +38,6 @@ yarn && yarn start
 
 ## Considerations
 
-Apollo client is a way easy to implement in this very simple application and it's technology agnostic, has hooks support which help to create a query or mutation in an ewasy way.
-It has also a lot of not explored features in this PoC that can be implemented gradually.
+Apollo client is a way easier to implement in this very simple application and it's technology agnostic, has hooks support which help to create a query or mutation in an ewasy way. It has also a lot of not explored features in this PoC that can be implemented gradually.
 
-In the other hand, Relay is a bit more complex to implement, you need to mach the file name with the queries/mutation body contend to be able to generate the fragments (through the CLI). But it works very well and seems to be powerfull and maybe fits better in large applications.
+In the other hand, Relay is a bit more complex to implement, you need to match the file name with the queries/mutation body contend to be able to generate the fragments (through the CLI). But it works very well, seems to be powerfull and maybe fits better in large applications.

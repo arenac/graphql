@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import CryptoCurrencyQuery from './CryptoCurrencyQuery';
+import addCryptoMutation from './addCryptoMutation';
+import environment from './relayEnvironment';
 
 function App() {
+  const [mutationREsponse, setMutationResponse] = useState(null);
+
+  const addCurrency = async () => {
+    const data = await addCryptoMutation(environment, "NiloCoin", "1000.0")
+    setMutationResponse(data.addCryptoCurrency);
+  }
   return (
     <div
       style={{
@@ -17,8 +25,8 @@ function App() {
       </div>
       <br/>
       <h1>Mutation</h1>
-      <div>{}</div>
-      <button onClick={() => {}}>Add a CryptoCurrency</button>
+      <div>{mutationREsponse && JSON.stringify(mutationREsponse)}</div>
+      <button onClick={addCurrency}>Add a CryptoCurrency</button>
     </div>
   );
 }
